@@ -1,0 +1,63 @@
+------------MENU LIST--------------
+                    if (title && title !== 'Top Picks') {
+                        return (
+                            <div key={index} className='my-4'>
+                                <div
+                                    className='flex justify-between items-center text-3xl mx-2 cursor-pointer'
+                                    onClick={() => toggleSection(index)}
+                                >
+                                    <div>{title}</div>
+                                    <h1>{isOpen ? '-' : '+'}</h1>
+                                </div>
+                                <div className='h-[2px] bg-orange-400 my-2'></div>
+                                {isOpen && (
+                                    <div className='grid grid-cols-2 gap-5'>
+                                        {(cardData?.card?.card?.itemCards
+                                            ? cardData?.card?.card?.itemCards
+                                            : cardData?.card?.card?.categories
+                                        ).map((item, itemIndex) =>
+                                            item.itemCards
+                                                ? item.itemCards.map((item2) => (
+                                                    <ItemCard {...item2.card.info} key={item2.card.info.id} />
+                                                ))
+                                                : <ItemCard {...item.card.info} key={itemIndex} />
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    }
+--------MENU LIST 2---------
+                <div>
+                    {category.slice(1, -2).map((cardData, index) => {
+                        const title = cardData?.card?.card?.title;
+                        const isOpen = openIndex === index;
+                        if (title && title !== 'Top Picks') {
+                            return (
+                                <div key={index} className=''>
+                                    <div
+                                        className='w-80 flex justify-end cursor-pointer border-r-2 border-gray-200'
+                                        onClick={() => toggleSection(index)}
+                                    >
+                                    <div className='my-1 pr-5 border-r-4'>{title}</div>
+                                    </div>
+                                    {/* {isOpen && (
+                                        <div className='grid grid-cols-2 gap-5'>
+                                            {(cardData?.card?.card?.itemCards
+                                                ? cardData?.card?.card?.itemCards
+                                                : cardData?.card?.card?.categories
+                                            ).map((item, itemIndex) =>
+                                                item.itemCards
+                                                    ? item.itemCards.map((item2) => (
+                                                        <ItemCard {...item2.card.info} key={item2.card.info.id} />
+                                                    ))
+                                                    : <ItemCard {...item.card.info} key={itemIndex} />
+                                            )}
+                                        </div>
+                                    )} */}
+                                </div>
+                            );
+                        }
+                        return null;
+                    })}
+                </div>

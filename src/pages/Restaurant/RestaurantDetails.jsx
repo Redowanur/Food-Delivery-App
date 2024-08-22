@@ -20,7 +20,7 @@ const RestaurantDetails = () => {
             const json = await response.json();
             setName(json?.data?.cards[0]?.card?.card?.text || '');
             setCategory(json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || []);
-            // console.log(category)
+            console.log(category)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -71,9 +71,9 @@ const RestaurantDetails = () => {
                                     ).map((item, itemIndex) =>
                                         item.itemCards
                                             ? item.itemCards.map((item2) => (
-                                                <ItemCard {...item2.card.info} key={item2.card.info.id} />
+                                                <ItemCard {...item2.card.info} key={item2.card.info.id} resName={name}/>
                                             ))
-                                            : <ItemCard {...item.card.info} key={itemIndex} />
+                                            : <ItemCard {...item.card.info} key={itemIndex} resName={name}/>
                                     )}
                                 </div>
                             )
@@ -81,7 +81,6 @@ const RestaurantDetails = () => {
                     })}
                 </div>
             </div>
-
         </>
     );
 };

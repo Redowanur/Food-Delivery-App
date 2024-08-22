@@ -1,8 +1,22 @@
 import { useState } from "react";
 import { FOOD_IMG_URL } from '../../assets/img/images';
+import { useDispatch } from "react-redux";
+import { addItem } from "../../utils/cartSlice";
 
-const ItemCard = ({ imageId, name, price, description }) => {
+const ItemCard = ({ id, resName, imageId, name, price, description }) => {
     let [quantity, setQuantity] = useState(0);
+    const dispatch = useDispatch()
+
+    function handleClick(){
+        dispatch(addItem({
+            id: id,
+            resName: resName,
+            imageId: imageId, 
+            name: name, 
+            price: price/100, 
+            quantity: quantity,
+        }))
+    }
 
     return (
         <div className='flex rounded-xl shadow-md my-5'>
@@ -25,7 +39,10 @@ const ItemCard = ({ imageId, name, price, description }) => {
                         className='bg-green-400 h-7 w-7 rounded-tr-md rounded-br-md flex justify-center items-center text-xl cursor-pointer'
                         onClick={() => setQuantity(quantity = quantity + 1)}
                     >+</div>
-                    <button className="bg-orange-400 px-2 py-[2px] rounded-md ml-6">Add to Cart</button>
+                    <button 
+                        className="bg-orange-400 px-2 py-[2px] rounded-md ml-6"
+                        onClick={() => handleClick()}
+                    >Add to Cart</button>
                 </div>
             </div>
         </div>

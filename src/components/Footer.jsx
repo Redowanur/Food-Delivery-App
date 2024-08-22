@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className='h-[500px] bg-stone-950 flex justify-center items-center gap-28 text-white'>
+    <div className='h-[500px] w-full bg-stone-950 flex justify-center items-center gap-28 text-white'>
       <div className='w-40 h-full pt-16'>
         <h1 className='font-bold text-2xl mb-2'>Swiggy</h1>
         <p>© 2024 Bundl Technologies Pvt. Ltd</p>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Shimmer1 = () => {
+const ResCardShimmer = () => {
   return (
     <div className='grid grid-cols-4 gap-4 w-[1300px] my-10'>
       {Array(8).fill('').map(() => 
@@ -14,4 +14,4 @@ const Shimmer1 = () => {
   )
 }
 
-export default Shimmer1
+export default ResCardShimmer

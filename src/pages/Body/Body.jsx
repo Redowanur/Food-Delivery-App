@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { SWIGGY_API } from '../../config'
 import RestaurantCard from './RestaurantCard'
-import Shimmer from './Shimmer1'
+import Shimmer from './ResCardShimmer'
 import { Link } from 'react-router-dom'
 import { FaSearch } from 'react-icons/fa'
 
@@ -35,7 +35,7 @@ function Body() {
                         type='text'
                         placeholder='Search Restaurants'
                         value={searchText}
-                        className='w-[400px] h-12 px-4 rounded-l-xl focus:outline-none bg-stone-100'
+                        className='w-[400px] py-3 px-4 rounded-l-xl focus:outline-none bg-stone-100'
                         onChange={e => setSearchText(e.target.value)}
                     />
                     <button 
